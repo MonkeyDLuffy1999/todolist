@@ -59,8 +59,9 @@ function render() {
   const items = visibleTodos();
   for (const t of items) {
     const li = document.createElement("li");
-    li.className = "item";
+    li.className = "item enter";
     li.dataset.id = t.id;
+    requestAnimationFrame(() => li.classList.remove("enter"));
 
     const cb = document.createElement("input");
     cb.type = "checkbox";
@@ -105,6 +106,17 @@ function toggle(id, completed) {
 }
 
 function remove(id) {
+  const li = els.list.querySelector(`[data-id="${CSS.escape(id)}"]`);
+  if (li) {
+    li.classList.add("exiting");
+    window.setTimeout(() => {
+      todos = todos.filter((t) => t.id !== id);
+      saveTodos(todos);
+      render();
+    }, 180);
+    return;
+  }
+
   todos = todos.filter((t) => t.id !== id);
   saveTodos(todos);
   render();
