@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo (Local)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>Todo</h1>
+        <p class="subtitle">Saved locally in your browser</p>
+      </header>
+
+      <section class="card">
+        <form id="addForm" class="row" autocomplete="off">
+          <input
+            id="newTodo"
+            class="input"
+            type="text"
+            placeholder="Add a task…"
+            maxlength="200"
+            required
+          />
+          <button class="btn primary" type="submit">Add</button>
+        </form>
+
+        <div class="row between wrap gap-sm">
+          <div class="filters" role="group" aria-label="Filters">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip" type="button" data-filter="active" aria-pressed="false">Active</button>
+            <button class="chip" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+          </div>
+
+          <div class="actions">
+            <button id="exportBtn" class="btn" type="button">Export</button>
+            <label class="btn file">
+              Import
+              <input id="importInput" type="file" accept="application/json" />
+            </label>
+            <button id="clearCompletedBtn" class="btn danger" type="button">Clear completed</button>
+          </div>
+        </div>
+
+        <ul id="list" class="list" aria-live="polite"></ul>
+
+        <footer class="footer between wrap">
+          <div id="count" class="muted">0 items</div>
+          <div class="muted">Tip: Double-click a task to edit</div>
+        </footer>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+

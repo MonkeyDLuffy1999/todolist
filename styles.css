@@ -1,0 +1,143 @@
+:root{
+  --bg: #0b1020;
+  --card: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.12);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.65);
+  --accent: #7c5cff;
+  --danger: #ff4d5a;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,0.35), transparent 60%),
+              radial-gradient(900px 600px at 90% 10%, rgba(0,200,255,0.22), transparent 55%),
+              var(--bg);
+  color: var(--text);
+}
+
+.container{ max-width: 860px; margin: 0 auto; padding: 28px 16px 44px; }
+.header{ margin-bottom: 14px; }
+.header h1{ margin:0; font-size: 28px; letter-spacing: 0.2px; }
+.subtitle{ margin: 6px 0 0; color: var(--muted); }
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.row{ display:flex; align-items:center; gap: 10px; }
+.between{ justify-content: space-between; }
+.wrap{ flex-wrap: wrap; }
+.gap-sm{ gap: 8px; }
+
+.actions{ display:flex; flex-wrap: wrap; gap: 8px; }
+
+/* Space between the add form and the filter/action row */
+.card > .row.between{ margin-top: 12px; }
+
+.input{
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  outline: none;
+}
+.input:focus{ border-color: rgba(124,92,255,0.7); box-shadow: 0 0 0 3px rgba(124,92,255,0.15); }
+
+.btn{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor:pointer;
+  user-select:none;
+}
+.btn:hover{ background: rgba(255,255,255,0.07); }
+.btn.primary{ border-color: rgba(124,92,255,0.7); background: rgba(124,92,255,0.18); }
+.btn.danger{ border-color: rgba(255,77,90,0.65); background: rgba(255,77,90,0.12); }
+.btn.file{ position: relative; overflow: hidden; display: inline-flex; align-items:center; }
+.btn.file input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+
+.filters{ display:flex; gap: 8px; }
+.filters{ flex-wrap: wrap; }
+.chip{
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip[aria-pressed="true"]{
+  color: var(--text);
+  border-color: rgba(124,92,255,0.6);
+  background: rgba(124,92,255,0.16);
+}
+
+.list{ list-style:none; padding: 8px 0 0; margin: 8px 0 0; display:flex; flex-direction:column; gap: 8px; }
+.item{
+  display:flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+}
+.checkbox{ width: 18px; height: 18px; }
+.title{
+  flex:1;
+  min-width: 160px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.title.completed{ color: rgba(255,255,255,0.55); text-decoration: line-through; }
+.icon-btn{
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.icon-btn:hover{ color: var(--text); background: rgba(255,255,255,0.06); }
+.icon-btn.danger:hover{ border-color: rgba(255,77,90,0.6); color: rgba(255,200,200,0.95); }
+
+.footer{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.muted{ color: var(--muted); }
+
+@media (max-width: 520px){
+  .container{ padding: 18px 12px 30px; }
+  .header h1{ font-size: 24px; }
+  .card{ padding: 12px; border-radius: 14px; }
+
+  #addForm{ flex-direction: column; align-items: stretch; }
+  #addForm .input{ min-width: 0; width: 100%; }
+  #addForm .btn.primary{ width: 100%; padding: 12px 12px; }
+
+  .row.between{ align-items: stretch; }
+  .card > .row.between{ margin-top: 14px; }
+  .filters{ width: 100%; }
+  .actions{ width: 100%; }
+  .btn, .chip, .icon-btn{ padding: 11px 12px; }
+
+  .item{ align-items: flex-start; }
+  .checkbox{ width: 22px; height: 22px; margin-top: 2px; }
+  .title{ min-width: 0; }
+}
+
