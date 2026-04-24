@@ -26,28 +26,11 @@
           <button class="btn primary" type="submit">Add</button>
         </form>
 
-        <div class="row between wrap gap-sm">
-          <div class="filters" role="group" aria-label="Filters">
-            <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="chip" type="button" data-filter="active" aria-pressed="false">Active</button>
-            <button class="chip" type="button" data-filter="completed" aria-pressed="false">Completed</button>
-          </div>
-
-          <div class="actions">
-            <button id="exportBtn" class="btn" type="button">Export</button>
-            <label class="btn file">
-              Import
-              <input id="importInput" type="file" accept="application/json" />
-            </label>
-            <button id="clearCompletedBtn" class="btn danger" type="button">Clear completed</button>
-          </div>
-        </div>
-
         <ul id="list" class="list" aria-live="polite"></ul>
 
         <footer class="footer between wrap">
-          <div id="count" class="muted">0 items</div>
-          <div class="muted">Tip: Double-click a task to edit</div>
+          <div id="count" class="muted">0 items left</div>
+          <div class="muted">Tap checkbox to complete</div>
         </footer>
       </section>
     </main>
